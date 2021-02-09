@@ -1,14 +1,23 @@
 //--init 
+var col = 26
+var row = 25
+snakeOnePos = [{col:26,row:25},{col:25,row:25}]
 
-  var snake = document.getElementsByClassName("snake");
+
+
+for(i=0; i<2; i++){
+  let div = document.createElement("div")
+  div.classList.add("snakeOne")
+  document.getElementById("playBox").appendChild(div)
+  }
+
+
+  var snakeOne = document.getElementsByClassName("snakeOne");
 
 
   //starting position
-  var col = 26
-  var row = 25
-  snakePos = [{col:26,row:25},{col:25,row:25}]
 
-  snakeLength = snakePos.length
+  snakeOneLength = snakeOnePos.length
   var foodCreate = document.createElement("div");
   foodCreate.id = "food"
   document.getElementById("playBox").appendChild(foodCreate);
@@ -21,14 +30,14 @@
     div.classList.add("darker")
     div.style.gridColumn = n
     div.style.gridRow = i
-    document.getElementById("playBox").appendChild(div);
+    document.getElementById("board").appendChild(div);
     }}else{
       for (let n = 2; n < 51; n+=2) {
         var div = document.createElement("div");
         div.classList.add("darker")
         div.style.gridColumn = n
         div.style.gridRow = i
-        document.getElementById("playBox").appendChild(div);
+        document.getElementById("board").appendChild(div);
     }
   }
   }
@@ -93,12 +102,12 @@
       }
       //if food picked, increase length of snake and create new food
       if(col == foodcol && row == foodrow){
-        snakeLength+=1
+        snakeOneLength+=1
         createFood()
         var div = document.createElement("div");
-        div.className = "snake";
+        div.className = "snakeOne";
         document.getElementById("playBox").appendChild(div);
-        document.getElementById("score").innerHTML=`Score: ${snakeLength-2}`;
+        document.getElementById("scoreOne").innerHTML=`Score: ${snakeOneLength-2}`;
       }
     changePos()
   }
@@ -119,18 +128,18 @@ function createFood(){
 }
 //adding position of snake head to 0 index
 function changePos(){
-  snakePos.splice(0,0,{col:col,row:row})
+  snakeOnePos.splice(0,0,{col:col,row:row})
 
 //deleting last position if there are more positions than actual snake length
-  if(snakePos.length>snakeLength){
-    snakePos.splice(-1,1)
+  if(snakeOnePos.length>snakeOneLength){
+    snakeOnePos.splice(-1,1)
   }
 //adding tail of snake
-  for(let i=0; i<snakeLength;i++){
-    snake[i].style.gridColumn = `${snakePos[i].col}`
-    snake[i].style.gridRow = `${snakePos[i].row}`
+  for(let i=0; i<snakeOneLength;i++){
+    snakeOne[i].style.gridColumn = `${snakeOnePos[i].col}`
+    snakeOne[i].style.gridRow = `${snakeOnePos[i].row}`
     //comparing if head has the same position as rest of body(if it is, you lose)
-    if(JSON.stringify(snakePos[0]) === JSON.stringify(snakePos[i+1])){
+    if(JSON.stringify(snakeOnePos[0]) === JSON.stringify(snakeOnePos[i+1])){
       food.style.display = "none"
       lose()
       clearInterval(play)
@@ -144,7 +153,7 @@ function changePos(){
 function lose(){
 
 
-  let wholeSnake = document.querySelectorAll('.snake');
+  let wholeSnakeOne = document.querySelectorAll('.snakeOne');
   let state = 1
 
   let divInfo = document.createElement("div");
@@ -156,19 +165,19 @@ function lose(){
   document.getElementById("content").appendChild(divInfo)
   divText.innerHTML = "You lose"
   document.getElementsByClassName("info")[0].appendChild(divText)
-  divScore.innerHTML = `Score: ${snakeLength-2}`
+  divScore.innerHTML = `Score: ${snakeOneLength-2}`
   divScore.style.fontSize = "5vh"
   document.getElementsByClassName("info")[0].appendChild(divScore)
   
   //ending snake fading animation
   setInterval(function(){
     if(state%2==0){
-      for(let i=0; i<wholeSnake.length;i++)
-      wholeSnake[i].style.removeProperty('display')
+      for(let i=0; i<wholeSnakeOne.length;i++)
+      wholeSnakeOne[i].style.removeProperty('display')
       state+=1
     }else{
-      for(let i=0; i<wholeSnake.length;i++)
-      wholeSnake[i].style.display = "none"
+      for(let i=0; i<wholeSnakeOne.length;i++)
+      wholeSnakeOne[i].style.display = "none"
       state+=1
     }
     }, 750);

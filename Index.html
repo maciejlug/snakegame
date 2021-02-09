@@ -11,19 +11,23 @@
 <body>
 <div id="content">
     <div id="startBox">
-        <div id="play" onclick="playGame(`game.js`)">Play</div>
-        <div id="changeColor">...</div>
+        <div id="play" onclick="playGame(`game.js`)">1 Player</div>
+        <div id="playTwo" onclick="playGame(`gameTwo.js`)">2 Players</div>
     </div>
     <div id="playBox">
-        <div class="snake"></div>
-        <div class="snake"></div>
+        <div id="board"></div>
     </div>
-    <div id="score">Score: 0</div>
-    <div id="instructions">
+    <div id="scoreOne">Score: 0</div>
+    <div id="instructionsOne">
         <span>Controls:</span>
         <span>Arrows</span>
     </div>
-    <div id="retry" onclick="retry()">Retry</div>
+    <div id="scoreTwo">Score: 0</div>
+    <div id="instructionsTwo">
+        <span>Controls:</span>
+        <span>W S A D</span>
+    </div>
+    <div id="retry" onclick="retry()">Menu</div>
 
 
 

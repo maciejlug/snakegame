@@ -67,14 +67,19 @@ for (let i = 1; i < 51; i++) {
 setTimeout(function(){
 document.getElementById("playBox").appendChild(foodCreate);
 createFood()
-//--movement 
-
-
-//movement by key
-document.onkeydown = checkKey;
+  
+//--movement init
 
 var moveOne = 2
 var moveTwo = 1
+
+
+
+function game(){
+  
+  //movement by key
+document.onkeydown = checkKey;
+
 
 function checkKey(e) {
 
@@ -116,8 +121,6 @@ function checkKey(e) {
       moveTwo = 4
     }
 }
-//changing position of snake head
-function game(){
    //player one
   switch (moveOne){
     case 1:

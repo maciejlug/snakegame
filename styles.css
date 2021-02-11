@@ -67,14 +67,14 @@ img{
 }
 
 .snakeOne{
-    background-color: green;
+    background-color: rgb(90, 202, 67);
     z-index: 99;
     box-sizing: border-box;
     border: 1px solid black;
 }
 
 .snakeTwo{
-    background-color: blue;
+    background-color: rgb(20, 132, 223);
     z-index: 99;
     box-sizing: border-box;
     border: 1px solid black;
@@ -122,12 +122,13 @@ img{
 #scoreOne{
     grid-column: 6/7;
     grid-row: 2/3;
-
+    background-color: rgb(90, 202, 67);
 }
 
 #instructionsOne{
     grid-column: 6/7;
     grid-row: 4/7;
+    background-color: rgb(90, 202, 67);
 }
 
 
@@ -140,13 +141,14 @@ img{
 #scoreTwo{
     grid-column: 2/3;
     grid-row: 2/3;
+    background-color: rgb(20, 132, 223);
 
 }
 
 #instructionsTwo{
     grid-column: 2/3;
     grid-row: 4/7;
-
+    background-color: rgb(20, 132, 223);
 }
 
 #board{

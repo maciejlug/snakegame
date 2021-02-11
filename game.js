@@ -7,23 +7,17 @@ var colOne = 26
 var rowOne = 25
 var snakeOnePos = [{col:26,row:25},{col:25,row:25}]
 
+
 //create both snakes
-for(i=0; i<2; i++){
+for(i=0; i<snakeOnePos.length; i++){
   let div = document.createElement("div");
   div.classList.add("snakeOne");
   document.getElementById("playBox").appendChild(div);
-  console.log(snakeOnePos)
+  div.style.gridColumn = `${snakeOnePos[i].col}`;
+  div.style.gridRow = `${snakeOnePos[i].row}`;
 }
-
-snakeOne = document.getElementsByClassName("snakeOne");
-
+var snakeOne = document.getElementsByClassName("snakeOne");
 var snakeOneLength = snakeOnePos.length;
-
-//styles for snakes
-for(let i=0; i<snakeOneLength;i++){
-  snakeOne[i].style.gridColumn = `${snakeOnePos[i].col}`;
-  snakeOne[i].style.gridRow = `${snakeOnePos[i].row}`;
-}
 
 var foodCreate = document.createElement("div");
 foodCreate.id = "food";

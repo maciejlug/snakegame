@@ -13,12 +13,16 @@ var rowTwo = 48;
 var snakeTwoPos = [{col:2,row:48},{col:2,row:49}];
 
 //create both snakes
-  for(i=0; i<2; i++){
+  for(i=0; i<snakeOnePos.length; i++){
   let div = document.createElement("div");
   let divTwo = document.createElement("div");
   div.classList.add("snakeOne");
+  div.style.gridColumn = `${snakeOnePos[i].col}`;
+  div.style.gridRow = `${snakeOnePos[i].row}`;
   document.getElementById("playBox").appendChild(div);
   divTwo.classList.add("snakeTwo");
+  divTwo.style.gridColumn = `${snakeTwoPos[i].col}`;
+  divTwo.style.gridRow = `${snakeTwoPos[i].row}`;
   document.getElementById("playBox").appendChild(divTwo);
 }
 snakeOne = document.getElementsByClassName("snakeOne");
@@ -27,15 +31,6 @@ snakeTwo = document.getElementsByClassName("snakeTwo");
 var snakeOneLength = snakeOnePos.length;
 var snakeTwoLength = snakeTwoPos.length;
 
-//styles for snakes
-for(let i=0; i<snakeOneLength;i++){
-  snakeOne[i].style.gridColumn = `${snakeOnePos[i].col}`;
-  snakeOne[i].style.gridRow = `${snakeOnePos[i].row}`;
-}
-for(let i=0; i<snakeTwoLength;i++){
-  snakeTwo[i].style.gridColumn = `${snakeTwoPos[i].col}`;
-  snakeTwo[i].style.gridRow = `${snakeTwoPos[i].row}`;
-}
 
 var foodCreate = document.createElement("div");
 foodCreate.id = "food";

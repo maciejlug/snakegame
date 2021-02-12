@@ -161,10 +161,10 @@ setTimeout(function(){
   //changing position of both snakes and checking collision
   function movement(){
  
-    snakeOnePos.splice(0,0,{col:colOne,row:rowOne});
+    snakeOnePos.unshift({col:colOne,row:rowOne});
 
     if(snakeOnePos.length>snakeOneLength){
-      snakeOnePos.splice(-1,1);
+      snakeOnePos.pop();
     }
     console.log(snakeOnePos.length)
     console.log(snakeOneLength)

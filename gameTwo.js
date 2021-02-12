@@ -13,7 +13,7 @@ var rowTwo = 48;
 var snakeTwoPos = [{col:2,row:48},{col:2,row:49}];
 
 //create both snakes
-  for(i=0; i<snakeOnePos.length; i++){
+for(i=0; i<snakeOnePos.length; i++){
   let div = document.createElement("div");
   let divTwo = document.createElement("div");
   div.classList.add("snakeOne");
@@ -253,15 +253,15 @@ setTimeout(function(){
   function movement(){
 
     let allSnakeLength = snakeOneLength+snakeTwoLength;
-    snakeOnePos.splice(0,0,{col:colOne,row:rowOne});
+    snakeOnePos.unshift({col:colOne,row:rowOne});
 
     if(snakeOnePos.length>snakeOneLength){
-      snakeOnePos.splice(-1,1);
+      snakeOnePos.pop();
     }
-    snakeTwoPos.splice(0,0,{col:colTwo,row:rowTwo});
+    snakeTwoPos.unshift({col:colTwo,row:rowTwo});
 
     if(snakeTwoPos.length>snakeTwoLength){
-      snakeTwoPos.splice(-1,1);
+      snakeTwoPos.pop();
     }
     
     var wholeSnakeOne = document.querySelectorAll('.snakeOne');

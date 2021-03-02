@@ -41,7 +41,7 @@ img{
 
 #startBox{
     grid-column: 4/5;
-    grid-row: 5/7;
+    grid-row: 4/8;
     display:flex;
     align-items: center;
     justify-content: center;
@@ -60,11 +60,11 @@ img{
     display:flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
 }
 
 #play:hover, #playTwo:hover, #retry:hover{
     background-color: rgb(190, 162, 127);
+    cursor:pointer;
 }
 
 .snakeOne{
@@ -160,4 +160,15 @@ img{
     display: grid;
     grid-template-columns: repeat(50, 2%);
     grid-template-rows: repeat(50, 2%);
+}
+
+@import url('https://fonts.googleapis.com/css?family=Boogaloo');
+#text-start{
+    font-family: Boogaloo;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 7rem;
+    color: rgb(0, 207, 21);
+    text-shadow: 2px 2px 6px #000000;
+    margin-bottom: 7%;
 }
